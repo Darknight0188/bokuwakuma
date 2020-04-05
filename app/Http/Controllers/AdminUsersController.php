@@ -8,6 +8,8 @@ use App\Http\Requests\UsersRequest;
 
 use App\Http\Requests\UsersEditRequest;
 
+use Illuminate\Support\Facades\Session;
+
 use App\User;
 
 use App\Role;
@@ -67,8 +69,6 @@ class AdminUsersController extends Controller
         }
 
 
-        $input = $request->all();
-
         if($file = $request->file('photo_id')){
 
             $name = time() . $file->getClientOriginalName();
@@ -79,6 +79,8 @@ class AdminUsersController extends Controller
 
             $input['photo_id'] = $photo->id;
         }
+
+        // dd($input);
 
         User::create($input);
 
@@ -136,10 +138,6 @@ class AdminUsersController extends Controller
             $input['password'] = bcrypt($request->password);
         }
 
-
-
-        $input = $request->all();
-
         if($file = $request->file('photo_id')){
 
             $name = time() . $file->getClientOriginalName();
@@ -166,5 +164,15 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
+
+        User::findOrFail($id)->delete();
+
+        Session::flash('deleted_user','The user has benn deleted');
+
+        return redirect('/admin/users');
+
+
     }
+
+
 }
