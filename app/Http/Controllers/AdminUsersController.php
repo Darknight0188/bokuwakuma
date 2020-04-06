@@ -144,7 +144,7 @@ class AdminUsersController extends Controller
 
             $file->move('images', $name);
 
-            $photo = Photo::create(['file'=>name]);
+            $photo = Photo::create(['file'=>$name]);
 
             $input['photo_id'] = $photo->id;
         }
