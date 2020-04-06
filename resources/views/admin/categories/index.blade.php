@@ -38,7 +38,7 @@
         @foreach($categories as $category)
       <tr>
         <td>{{$category->id}}</td>
-        <td>{{$category->name}}</td>
+        <td><a href="{{url('/admin/categories')}}/{{$category->id}}/edit">{{$category->name}}</a></td>
         <td>{{$category->created_at->diffForHumans()}}</td>
       </tr>
       @endforeach
