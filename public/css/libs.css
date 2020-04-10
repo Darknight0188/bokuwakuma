@@ -8683,3 +8683,16 @@ table.dataTable thead .sorting:after {
 .panel-yellow a:hover {
     color: #df8a13;
 }
+#taothichsua{
+  margin-top: 60px;
+}
+
+.nested-comment{
+  margin-top: 60px;
+}
+
+.comment-reply{
+
+  display: none;
+
+}
