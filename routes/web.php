@@ -32,6 +32,13 @@ Route::group(['as'=>'admin.','middleware'=>'admin'],function(){
     
     });
 
+    Route::get('/admin/logout',function(){
+
+        Auth::logout();
+
+        return view('welcome');
+    });
+
     Route::resource('admin/users','AdminUsersController');
 
     Route::resource('admin/posts','AdminPostsController');

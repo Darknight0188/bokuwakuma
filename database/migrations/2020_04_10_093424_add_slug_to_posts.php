@@ -29,6 +29,7 @@ class AddSlugToPosts extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             //
+            $table->dropColumn('slug');
         });
     }
 }
